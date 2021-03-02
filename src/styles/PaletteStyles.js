@@ -8,7 +8,7 @@ export default {
 		display: 'inline-block',
 		position: 'relative',
 		cursor: 'pointer',
-		marginBottom: '-4px',
+		marginBottom: '-4.3px',
 		textTransform: 'uppercase',
 		'& a': {
 			color: 'white',

@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 export default {
 	root: {
+		overflow: 'auto',
 		backgroundColor: 'blue',
 		height: '100vh',
 		display: 'flex',
@@ -15,10 +16,16 @@ export default {
 		flexWrap: 'wrap'
 	},
 	nav: {
+		margin: '10px 0',
 		display: 'flex',
 		width: '100%',
 		justifyContent: 'space-between',
-		color: 'white'
+		alignItems: 'center',
+		color: 'white',
+		'& a': {
+			// textDecoration: 'none',
+			color: 'white'
+		}
 	},
 	palettes: {
 		boxSizing: 'border-box',
