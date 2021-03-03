@@ -21,7 +21,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const PaletteList = ({ palettes, classes, history, deletePalette }) => {
 	const [ open, setOpen ] = useState(false);
-	const [ id, setId ] = useState('');
+	const [ currentId, setCurrentId ] = useState('');
 
 	const goToPalette = id => {
 		history.push(`/palette/${id}`);
@@ -29,16 +29,16 @@ const PaletteList = ({ palettes, classes, history, deletePalette }) => {
 
 	const openDialog = id => {
 		setOpen(true);
-		setId(id);
+		setCurrentId(id);
 	};
 
 	const closeDialog = () => {
 		setOpen(false);
-		setId('');
+		setCurrentId('');
 	};
 
 	const handleDelete = () => {
-		deletePalette(id);
+		deletePalette(currentId);
 		setOpen(false);
 	};
 
