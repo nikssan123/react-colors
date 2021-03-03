@@ -53,6 +53,7 @@ const useStyles = makeStyles(theme => ({
 	drawerHeader: {
 		display: 'flex',
 		alignItems: 'center',
+		width: '100%',
 		padding: theme.spacing(0, 1),
 		// necessary for content to be below app bar
 		...theme.mixins.toolbar,
@@ -61,7 +62,7 @@ const useStyles = makeStyles(theme => ({
 	content: {
 		height: 'calc(100vh - 64px)',
 		flexGrow: 1,
-		padding: theme.spacing(3),
+		// padding: theme.spacing(3),
 		transition: theme.transitions.create('margin', {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen
@@ -122,12 +123,14 @@ export default function NewPaletteForm({ savePalette, history, palettes }) {
 		setColors([ ...colors, randomColor ]);
 	};
 
-	const handleSave = newPaletteName => {
+	const handleSave = ({ paletteName, emoji }) => {
+		// newPalette.id =  newPaletteName.toLowerCase().replace(/ /g, '-');
+		// newPalette.colors = colors;
 		const newPalette = {
-			paletteName: newPaletteName,
+			paletteName: paletteName,
 			colors,
-			emoji: '',
-			id: newPaletteName.toLowerCase().replace(/ /g, '-')
+			emoji,
+			id: paletteName.toLowerCase().replace(/ /g, '-')
 		};
 
 		savePalette(newPalette);
@@ -162,7 +165,7 @@ export default function NewPaletteForm({ savePalette, history, palettes }) {
 						<ChevronLeftIcon />
 					</IconButton>
 				</div>
-				<Divider />
+				<Divider width="100%" />
 				<div className={classes.container}>
 					<Typography gutterBottom variant="h4">
 						Design Your Palette
@@ -178,7 +181,7 @@ export default function NewPaletteForm({ savePalette, history, palettes }) {
 						</Button>
 						<Button
 							className={classes.button}
-							disabled={colors.length >= maxColors}
+							disabled={paletteIsFull}
 							variant="contained"
 							color="primary"
 							onClick={addRandomColor}

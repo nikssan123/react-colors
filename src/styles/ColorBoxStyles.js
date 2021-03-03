@@ -1,4 +1,5 @@
 import chroma from 'chroma-js';
+import sizes from './mediaQueries';
 // eslint-disable-next-line
 export default {
 	colorBox: {
@@ -12,6 +13,18 @@ export default {
 		textTransform: 'uppercase',
 		'&:hover button': {
 			opacity: '1'
+		},
+		[sizes.down('lg')]: {
+			width: '25%',
+			height: props => (props.showFullPalette ? '20%' : '33.3333%')
+		},
+		[sizes.down('md')]: {
+			width: '50%',
+			height: props => (props.showFullPalette ? '10%' : '20%')
+		},
+		[sizes.down('sm')]: {
+			width: '100%',
+			height: props => (props.showFullPalette ? '5%' : '10%')
 		}
 	},
 	copyText: {

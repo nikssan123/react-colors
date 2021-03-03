@@ -1,3 +1,4 @@
+import sizes from './mediaQueries';
 // eslint-disable-next-line
 export default {
 	goBack: {
@@ -29,6 +30,18 @@ export default {
 			border: 'none',
 			cursor: 'pointer',
 			textDecoration: 'none'
+		},
+		[sizes.down('lg')]: {
+			width: '25%',
+			height: '33.3333% !important'
+		},
+		[sizes.down('md')]: {
+			width: '50%',
+			height: '20% !important'
+		},
+		[sizes.down('sm')]: {
+			width: '100%',
+			height: '10% !important'
 		}
 	},
 	palette: {

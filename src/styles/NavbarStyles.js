@@ -1,3 +1,4 @@
+import sizes from './mediaQueries';
 // eslint-disable-next-line
 export default {
 	navbar: {
@@ -18,9 +19,20 @@ export default {
 		'& a': {
 			textDecoration: 'none',
 			color: 'black'
+		},
+		[sizes.down('xs')]: {
+			display: 'none'
 		}
 	},
-	selectContainer: { marginLeft: 'auto', marginRight: '1rem' },
+	selectContainer: {
+		marginLeft: 'auto',
+		marginRight: '1rem'
+	},
+	sliderContainer: {
+		[sizes.down('xs')]: {
+			marginLeft: '10px'
+		}
+	},
 	slider: {
 		width: '300px',
 		margin: '0 10px',
@@ -35,6 +47,9 @@ export default {
 			width: '13px',
 			height: '13px',
 			marginTop: '-3px'
+		},
+		[sizes.down('sm')]: {
+			width: '150px'
 		}
 	}
 };

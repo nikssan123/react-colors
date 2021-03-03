@@ -7,8 +7,9 @@ export default {
 		padding: '0.5rem',
 		position: 'relative',
 		overflow: 'hidden',
-		'&:hover': {
-			cursor: 'pointer'
+		cursor: 'pointer',
+		'&:hover svg': {
+			opacity: 1
 		}
 	},
 	colors: {
@@ -37,6 +38,21 @@ export default {
 		display: 'inline-block',
 		margin: '0 auto',
 		position: 'relative',
-		marginBottom: '-4px'
+		marginBottom: '-4.2px'
+	},
+	deleteIcon: {
+		margin: 0,
+		boxSizing: 'content-box',
+		color: 'white',
+		background: '#eb3d30',
+		width: '20px',
+		height: '20px',
+		position: 'absolute',
+		right: '-2px',
+		top: '0px',
+		padding: '10px',
+		zIndex: 10,
+		opacity: 0,
+		transition: 'opacity 0.4s ease-in-out'
 	}
 };
