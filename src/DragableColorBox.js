@@ -45,22 +45,25 @@ const styles = {
 		width: '100%',
 		left: '0px',
 		bottom: '0px',
-		// color: 'rgba(0, 0, 0, 0.5)',
 		letterSpacing: '1px',
 		fontSize: '12px',
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		[sizes.down('sm')]: {
-			// fontSize: '8px'
-			// padding: '0'
-			padding: '0 10px'
+			padding: '5px 5px 0'
 		}
 	},
 	deleteIcon: {
 		transition: '0.5s all ease-in-out',
 		[sizes.down('sm')]: {
-			padding: '5px 12px'
+			padding: '5px 8px',
+			fontSize: '12px'
+		}
+	},
+	button: {
+		[sizes.down('sm')]: {
+			padding: '5px 5px'
 		}
 	}
 };
@@ -70,7 +73,7 @@ const DragableColorBox = SortableElement(({ name, color, classes, deleteColor })
 		<div className={classes.root} style={{ backgroundColor: color }}>
 			<div className={classes.boxContent}>
 				<span>{name}</span>
-				<IconButton onClick={() => deleteColor(name)}>
+				<IconButton className={classes.button} onClick={() => deleteColor(name)}>
 					<DeleteIcon className={classes.deleteIcon} />
 				</IconButton>
 			</div>
