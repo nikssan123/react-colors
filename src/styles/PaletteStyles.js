@@ -50,6 +50,9 @@ export default {
 		flexDirection: 'column'
 	},
 	colors: {
-		height: '90%'
+		height: '90%',
+		fontFamily: "'Roboto', sans-serif",
+		lineHeight: '1.23',
+		fontSize: '1rem'
 	}
 };

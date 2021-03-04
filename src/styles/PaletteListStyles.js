@@ -20,7 +20,10 @@ export default {
 		justifyContent: 'center',
 		backgroundColor: '#394bad',
 		backgroundImage: `url(${bg})`,
-		backgroundAttachment: 'fixed'
+		backgroundAttachment: 'fixed',
+		fontFamily: "'Roboto', sans-serif",
+		lineHeight: '1.23',
+		fontSize: '1rem'
 		/* background by SVGBackgrounds.com */
 	},
 	container: {

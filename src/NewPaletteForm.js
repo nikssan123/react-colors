@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
+import seedColors from './seedColors';
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -97,7 +98,7 @@ export default function NewPaletteForm({ savePalette, history, palettes }) {
 	const maxColors = 20;
 
 	const [ open, setOpen ] = useState(true);
-	const [ colors, setColors ] = useState([ ...palettes[0].colors ]);
+	const [ colors, setColors ] = useState([ ...seedColors[0].colors ]);
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -118,14 +119,19 @@ export default function NewPaletteForm({ savePalette, history, palettes }) {
 
 	const addRandomColor = () => {
 		const allColors = palettes.map(p => p.colors).flat();
-		let rand = Math.floor(Math.random() * allColors.length);
-		const randomColor = allColors[rand];
+		let rand;
+		let randomColor;
+		let isDuplicateColor = true;
+		while (isDuplicateColor) {
+			rand = Math.floor(Math.random() * allColors.length);
+			randomColor = allColors[rand];
+			//eslint-disable-next-line
+			isDuplicateColor = colors.some(color => color.name === randomColor.name);
+		}
 		setColors([ ...colors, randomColor ]);
 	};
 
 	const handleSave = ({ paletteName, emoji }) => {
-		// newPalette.id =  newPaletteName.toLowerCase().replace(/ /g, '-');
-		// newPalette.colors = colors;
 		const newPalette = {
 			paletteName: paletteName,
 			colors,
@@ -207,6 +213,7 @@ export default function NewPaletteForm({ savePalette, history, palettes }) {
 					deleteColor={deleteColor}
 					axis="xy"
 					onSortEnd={onSortEnd}
+					distance={10}
 				/>
 			</main>
 		</div>

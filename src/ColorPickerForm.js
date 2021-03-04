@@ -38,6 +38,7 @@ const ColorPickerForm = ({ paletteIsFull, addNewColor, colors }) => {
 			name: newName
 		};
 		addNewColor(color);
+		setNewName('');
 		// setNewName(' ');
 	};
 
@@ -66,7 +67,7 @@ const ColorPickerForm = ({ paletteIsFull, addNewColor, colors }) => {
 				color={currentColor}
 				onChange={handleColorChange}
 			/>
-			<ValidatorForm onSubmit={handleSubmit}>
+			<ValidatorForm instantValidate={false} onSubmit={handleSubmit}>
 				<TextValidator
 					className={classes.colorInput}
 					margin="normal"

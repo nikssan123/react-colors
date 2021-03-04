@@ -4,7 +4,7 @@
     m - 991.98px
     l - 1199.98px
 */
-
+//eslint-disable-next-line
 export default {
 	up() {},
 	down(size) {

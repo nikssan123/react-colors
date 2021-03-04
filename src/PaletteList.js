@@ -57,7 +57,7 @@ const PaletteList = ({ palettes, classes, history, deletePalette }) => {
 								// deletePalette={deletePalette}
 								openDialog={openDialog}
 								{...palette}
-								handleClick={() => goToPalette(palette.id)}
+								handleClick={goToPalette}
 							/>
 						</CSSTransition>
 					))}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { withStyles } from '@material-ui/styles';
 import styles from './styles/ColorBoxStyles';
+import clsx from 'clsx';
 
 const ColorBox = ({ name, background, id, paletteId, showFullPalette, classes }) => {
 	const [ copied, setCopied ] = useState(false);
@@ -24,9 +25,15 @@ const ColorBox = ({ name, background, id, paletteId, showFullPalette, classes })
 			<div className={classes.colorBox} style={{ backgroundColor: background }}>
 				<div
 					style={{ background }}
-					className={`${classes.copyOverlay} ${copied && classes.showOverlay}`}
+					className={clsx(classes.copyOverlay, {
+						[classes.showOverlay]: copied
+					})}
 				/>
-				<div className={`${classes.copyMessage} ${copied && classes.showCopyMessage}`}>
+				<div
+					className={clsx(classes.copyMessage, {
+						[classes.showCopyMessage]: copied
+					})}
+				>
 					<h1>Copied!</h1>
 					<p className={classes.copyText}>{background}</p>
 				</div>
